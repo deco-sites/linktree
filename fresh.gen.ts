@@ -9,8 +9,7 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $$0 from "./islands/LiveControls.tsx";
-import * as $$$0 from "./sections/GetStarted.tsx";
-import * as $$$1 from "./sections/Head.tsx";
+import * as $$$0 from "./sections/main.tsx";
 
 const manifest: DecoManifest = {
   routes: {
@@ -20,66 +19,59 @@ const manifest: DecoManifest = {
     "./routes/index.tsx": $3,
   },
   islands: { "./islands/LiveControls.tsx": $$0 },
-  sections: { "./sections/GetStarted.tsx": $$$0, "./sections/Head.tsx": $$$1 },
+  sections: { "./sections/main.tsx": $$$0 },
   functions: {},
   schemas: {
-    "./sections/GetStarted.tsx": {
+    "./sections/main.tsx": {
       "inputSchema": {
+        "title": "Main",
         "type": "object",
         "properties": {
-          "enableInspectVSCode": {
-            "type": "boolean",
-            "title": "Enable Inspect V S Code",
-          },
-        },
-        "required": [],
-      },
-      "outputSchema": null,
-    },
-    "./sections/Head.tsx": {
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "title": {
+          "img": {
+            "format": "image-uri",
             "type": "string",
-            "title": "Title",
+            "title": "Img",
           },
-          "description": {
+          "profileImg": {
+            "format": "image-uri",
             "type": "string",
-            "title": "Description",
+            "title": "Profile Img",
           },
-          "url": {
-            "type": "string",
-            "title": "Url",
-          },
-          "imageUrl": {
-            "type": "string",
-            "title": "Image Url",
-          },
-          "faviconUrl": {
-            "type": "string",
-            "title": "Favicon Url",
-          },
-          "styleUrls": {
+          "listaLink": {
             "type": "array",
             "items": {
-              "type": "string",
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "title": "Url",
+                },
+                "titulo": {
+                  "type": "string",
+                  "title": "Titulo",
+                },
+              },
+              "required": [
+                "url",
+                "titulo",
+              ],
             },
-            "title": "Style Urls",
+            "title": "Lista Link",
           },
-          "themeColor": {
+          "titulo": {
             "type": "string",
-            "title": "Theme Color",
+            "title": "Titulo",
+          },
+          "subtitulo": {
+            "type": "string",
+            "title": "Subtitulo",
           },
         },
         "required": [
-          "title",
-          "description",
-          "url",
-          "imageUrl",
-          "faviconUrl",
-          "styleUrls",
-          "themeColor",
+          "img",
+          "profileImg",
+          "listaLink",
+          "titulo",
         ],
       },
       "outputSchema": null,
